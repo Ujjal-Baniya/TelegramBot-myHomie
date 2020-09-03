@@ -1,10 +1,55 @@
+import re
 import json
-import pyjokes
 import requests
-import urllib.request
+from bs4 import BeautifulSoup
+import pyjokes
+import urllib
 
-Token = "Enter your bot TOKEN"
+Token = "YOUR BOT TOKEN"
 Teleurl = "https://api.telegram.org/bot{}".format(Token)
+
+def get_ids(d):
+    if isinstance(d, dict):
+        for k, v in d.items():
+            yield from get_ids(v)
+    elif isinstance(d, list):
+        if len(d)>1 and d[1] is None:
+            yield d[0]
+        else:
+            for v in d:
+                yield from get_ids(v)
+
+def get_details(url):
+    html_data = requests.get(url).text
+    data = json.loads( re.search(r'FB_PUBLIC_LOAD_DATA_ = (.*?);', html_data, flags=re.S).group(1) )
+
+    cont = BeautifulSoup(html_data,"lxml")
+    vals = cont.find_all('div', {'class':'freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont'})
+    values = [vals[i].text for i in range(len(vals))]
+    
+    details = {}
+    for (x,y) in zip(values, get_ids(data)): 
+        if y == None:
+            continue
+        else:
+            if "NAME"in x.upper():
+                details['entry.'+str(y)] = "Ujjal Baniya"
+            elif "EMAIL"in x.upper():
+                details['entry.'+str(y)] = "UjjalBaniya@gmail.com"
+            elif "PHONE"in x.upper() or "CELL" in x.upper() or "CONTACT" in x.upper():
+                details['entry.'+str(y)] = "984932362"
+            elif "REG"in x.upper():
+                details['entry.'+str(y)] = "18B91A05Q3"
+            elif "SEC"in x.upper():
+                details['entry.'+str(y)] = "D"
+            elif "BATCH"in x.upper():
+                details['entry.'+str(y)] = "2018"
+            elif "ADDRESS"in x.upper():
+                details['entry.'+str(y)] = "NEPAL"
+            elif "COMMENT" in x.upper():
+                details['entry.'+str(y)] = "No COMMENTS"
+    return details
+
 
 def get_updates(url, offset=None):
     url = url + "/getUpdates?timeout=100"
@@ -22,9 +67,10 @@ def make_reply(msg):
     elif "AIM" in msg.upper():
         reply = "TO DESTROY HUMANITY KOROSH _!_"
     elif "ATT" in msg.upper():
-        url = "https://docs.google.com/forms/d/e/1FAIpQLSe_kp3CsZW2I1Q1f5TKMNrrWUkqlnzXTjKw34GkucPiOs1JiQ/formResponse"
-        x = updateform('userID,'password',url)
-        reply = "response{}".format(x)
+        url = "form url"
+        data = get_details(url)
+        x = updateform('googleID','password', url, data)
+        reply = "done"
     else:
         reply = "I am not intelligent like humans if you want to add feature contact owner https://www.facebook.com/lawju.baniya"
     return reply
@@ -34,7 +80,7 @@ def send_message(msg, chat_id, url):
     if msg is not None:
         r = requests.get(url)
 
-def updateform(user, passwd,url):
+def updateform(user, passwd, url, data):
     auth_handler = urllib.request.HTTPBasicAuthHandler()
     auth_handler.add_password(
         realm='New mail feed',
@@ -45,7 +91,6 @@ def updateform(user, passwd,url):
     opener = urllib.request.build_opener(auth_handler)
     urllib.request.install_opener(opener)
     feed = urllib.request.urlopen(url)
-    data = {"entry.331168482":"UJJAL BANIYA","entry.1056217443":"18B91A05Q3","entry.2048294415":"Ujjalbaniya@gmail.com"}
     l = requests.post(url, data)
     return l
 
