@@ -4,7 +4,7 @@
 ### I will update features in coming days.
 ### LOL 😁	
 
-## How to make yourHomie 👽
+## How to build yourHomie 👽
 - #### Make your telegram BOT 🛠️
 ```
  1. Open Telegram
