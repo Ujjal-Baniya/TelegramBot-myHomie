@@ -14,7 +14,15 @@
 - #### Clone this Repo 
 - #### Assign token vairable in myHomie.py with your Access Token.
 - #### Change quieres and replies with your own ideas.
-- #### Assign google ID and password to "updatefrom" function and update entries.ID and url according to Form.
+- #### Assign google ID and password to "updatefrom" function and update entries.ID and url according to your requirement.
 - #### Deploy it in Online Host. 💀
 ## Congratulation You Have yourHomie now 👽
+
+### It can only fill google forms made with blank option else 401 unauthorized error occurs
+### I am trying to fix this error [ HELP WILL BE APPRECIATED]
+
+## Correct way to command bot to fill google form
+- ### send https://docs.google.com/forms/d/e/someIDs to bot
+#### NOTE [ Original form url : https://docs.google.com/forms/d/e/someIDs/viewform] send url before '/viewform' only
+
 ##### [Note: Please be kind with yourHomie]
