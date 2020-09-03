@@ -9,7 +9,7 @@
 ```
  1. Open Telegram
  2. Search "BotFather"
- 3. Follow Instructions to make a bot and Collect Access Token
+ 3. Follow Instructions to make a new bot and Collect Access Token
 ```
 - #### Clone this Repo 
 - #### Assign token vairable in myHomie.py with your Access Token.
