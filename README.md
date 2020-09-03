@@ -14,7 +14,7 @@
 - #### Clone this Repo 
 - #### Assign token vairable in myHomie.py with your Access Token.
 - #### Change quieres and replies with your own ideas.
-- #### Assign google ID and password to "updatefrom" function and update entries.ID and url according to your requirement.
+- #### Assign google ID and password to "updatefrom" function and update values in get_details function according to your requirement.
 - #### Deploy it in Online Host. 💀
 ## Congratulation You Have yourHomie now 👽
 
@@ -25,4 +25,4 @@
 - ### send https://docs.google.com/forms/d/e/someIDs to bot
 #### NOTE [ Original form url : https://docs.google.com/forms/d/e/someIDs/viewform] send url before '/viewform' only
 
-##### [Note: Please be kind with yourHomie]
+##### [Note: Please be kind to yourHomie]
