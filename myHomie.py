@@ -3,7 +3,7 @@ import pyjokes
 import requests
 import urllib.request
 
-Token = "{Enter your bot TOKEN}"
+Token = "Enter your bot TOKEN"
 Teleurl = "https://api.telegram.org/bot{}".format(Token)
 
 def get_updates(url, offset=None):
