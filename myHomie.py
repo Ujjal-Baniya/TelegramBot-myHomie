@@ -20,6 +20,7 @@ def get_ids(d):
                 yield from get_ids(v)
 
 def get_details(url):
+    url = url +"/viewform"
     html_data = requests.get(url).text
     data = json.loads( re.search(r'FB_PUBLIC_LOAD_DATA_ = (.*?);', html_data, flags=re.S).group(1) )
 
@@ -66,11 +67,14 @@ def make_reply(msg):
         reply = pyjokes.get_joke()
     elif "AIM" in msg.upper():
         reply = "TO DESTROY HUMANITY KOROSH _!_"
-    elif "ATT" in msg.upper():
-        url = "form url"
-        data = get_details(url)
-        x = updateform('googleID','password', url, data)
-        reply = "done"
+    elif "google" in msg:
+        try:
+            url = msg
+            data = get_details(url)
+            x = updateform('dattebayo101b','hell0123', url, data)
+            reply = "done"
+        except:
+            reply = "failed"
     else:
         reply = "I am not intelligent like humans if you want to add feature contact owner https://www.facebook.com/lawju.baniya"
     return reply
@@ -81,6 +85,7 @@ def send_message(msg, chat_id, url):
         r = requests.get(url)
 
 def updateform(user, passwd, url, data):
+    url = url + "/formResponse"
     auth_handler = urllib.request.HTTPBasicAuthHandler()
     auth_handler.add_password(
         realm='New mail feed',
