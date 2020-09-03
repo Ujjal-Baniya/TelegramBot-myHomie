@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import pyjokes
 import urllib
 
-Token = "YOUR BOT TOKEN"
+Token = "Your BOT token ID"
 Teleurl = "https://api.telegram.org/bot{}".format(Token)
 
 def get_ids(d):
@@ -27,9 +27,9 @@ def get_details(url):
     cont = BeautifulSoup(html_data,"lxml")
     vals = cont.find_all('div', {'class':'freebirdFormviewerComponentsQuestionBaseTitle exportItemTitle freebirdCustomFont'})
     values = [vals[i].text for i in range(len(vals))]
-    
+
     details = {}
-    for (x,y) in zip(values, get_ids(data)): 
+    for (x,y) in zip(values, get_ids(data)):
         if y == None:
             continue
         else:
@@ -71,7 +71,7 @@ def make_reply(msg):
         try:
             url = msg
             data = get_details(url)
-            x = updateform('dattebayo101b','hell0123', url, data)
+            x = updateform('googleID','password', url, data)
             reply = "done"
         except:
             reply = "failed"
