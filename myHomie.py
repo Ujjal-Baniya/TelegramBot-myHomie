@@ -59,24 +59,27 @@ def get_updates(url, offset=None):
     r = requests.get(url)
     return json.loads(r.content)
 
-def make_reply(msg):
+def make_reply(msg, userID):
     reply = None
-    if "HELLO" in msg.upper() or "HI" in msg.upper():
-        reply = "Hello Master sup :)"
-    elif "JOKE" in msg.upper():
-        reply = pyjokes.get_joke()
-    elif "AIM" in msg.upper():
-        reply = "TO DESTROY HUMANITY KOROSH _!_"
-    elif "google" in msg:
-        try:
-            url = msg
-            data = get_details(url)
-            x = updateform('googleID','password', url, data)
-            reply = "done"
-        except:
-            reply = "failed"
+    if userID == "put your user Id here":
+        if "HELLO" in msg.upper() or "HI" in msg.upper():
+            reply = "Hello Master sup :)"
+        elif "JOKE" in msg.upper():
+            reply = pyjokes.get_joke()
+        elif "AIM" in msg.upper():
+            reply = "TO DESTROY HUMANITY KOROSH _!_"
+        elif "google" in msg:
+            try:
+                url = msg
+                data = get_details(url)
+                x = updateform('googleID','password', url, data)
+                reply = "done"
+            except:
+                reply = "failed"
+        else:
+            reply = "I am not intelligent like humans if you want to add feature contact owner https://www.facebook.com/lawju.baniya"
     else:
-        reply = "I am not intelligent like humans if you want to add feature contact owner https://www.facebook.com/lawju.baniya"
+        reply = "You are not authorized contact owner https://www.facebook.com/lawju.baniya"
     return reply
 
 def send_message(msg, chat_id, url):
@@ -111,5 +114,6 @@ while True:
             except:
                 message = None
             fro = item["message"]["from"]["id"]
+            userID = str(item['message']['from']['id'])
             reply = make_reply(message)
             send_message(reply, fro ,Teleurl)
