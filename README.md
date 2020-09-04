@@ -22,7 +22,8 @@
 #### I am trying to fix this error [ HELP WILL BE APPRECIATED]
 
 ## Correct way to command bot to fill google form
-- ### send https://docs.google.com/forms/d/e/someIDs to bot
-#### NOTE [ Original form url : https://docs.google.com/forms/d/e/someIDs/viewform] send url before '/viewform' only
+- ### send in this format to your bot
+`` google https://docs.google.com/forms/d/e/someIDs/viewform ``
+- ### If it replied response<200> congratulation all good 
 
 ##### [Note: Please be kind to yourHomie]
