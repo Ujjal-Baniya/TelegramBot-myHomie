@@ -18,8 +18,8 @@
 - #### Deploy it in Online Host. 💀
 ## Congratulation You Have yourHomie now 👽
 
-### It can only fill google forms made with blank option else 401 unauthorized error occurs
-### I am trying to fix this error [ HELP WILL BE APPRECIATED]
+#### It can only fill google forms made with blank option else 401 unauthorized error occurs
+#### I am trying to fix this error [ HELP WILL BE APPRECIATED]
 
 ## Correct way to command bot to fill google form
 - ### send https://docs.google.com/forms/d/e/someIDs to bot
