@@ -22,8 +22,11 @@
 #### I am trying to fix this error [ HELP WILL BE APPRECIATED]
 
 ## Correct way to command bot to fill google form
-- ### send in this format to your bot
+- ### Command format
 `` google https://docs.google.com/forms/d/e/someIDs/viewform ``
 - ### If it replied response<200> congratulation all good 
 
 ##### [Note: Please be kind to yourHomie]
+
+
+## Licensed under the [MIT License](LICENSE)
