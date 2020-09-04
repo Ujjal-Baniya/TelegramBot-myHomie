@@ -70,10 +70,11 @@ def make_reply(msg, userID):
             reply = "TO DESTROY HUMANITY KOROSH _!_"
         elif "google" in msg:
             try:
-                url = msg
+                msg = msg.split()[1].strip("/viewfrom")
+                url = str(msg)
                 data = get_details(url)
-                x = updateform('googleID','password', url, data)
-                reply = "done"
+                x = updateform('dattebayo101a','hell0123', url, data)
+                reply = x
             except:
                 reply = "failed"
         else:
@@ -113,7 +114,12 @@ while True:
                 message = str(item["message"]["text"])
             except:
                 message = None
-            fro = item["message"]["from"]["id"]
-            userID = str(item['message']['from']['id'])
+                        try:
+                fro = item["message"]["from"]["id"]
+            except:
+                fro = item['edited_message']["from"]["id"]
+                message = "error"
+                update_id +=1
+            userID = str(fro)
             reply = make_reply(message, userID)
             send_message(reply, fro ,Teleurl)
