@@ -44,22 +44,6 @@ def get_details(url):
             for key in givenData.keys():
                 if key in x.lower():
                     details['entry.'+str(y)] = givenData[key]
-#             if "NAME"in x.upper():
-#                 details['entry.'+str(y)] = "Ujjal Baniya"
-#             elif "EMAIL"in x.upper():
-#                 details['entry.'+str(y)] = "UjjalBaniya@gmail.com"
-#             elif "PHONE"in x.upper() or "CELL" in x.upper() or "CONTACT" in x.upper():
-#                 details['entry.'+str(y)] = "984932362"
-#             elif "REG"in x.upper():
-#                 details['entry.'+str(y)] = "18B91A05Q3"
-#             elif "SEC"in x.upper():
-#                 details['entry.'+str(y)] = "D"
-#             elif "BATCH"in x.upper():
-#                 details['entry.'+str(y)] = "2018"
-#             elif "ADDRESS"in x.upper():
-#                 details['entry.'+str(y)] = "NEPAL"
-#             elif "COMMENT" in x.upper():
-#                 details['entry.'+str(y)] = "No COMMENTS"
     return details
 
 
