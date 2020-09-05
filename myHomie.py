@@ -41,8 +41,9 @@ def get_details(url):
     details = {}
     for (x,y) in zip(values, get_ids(data)):
         if type(y)==int:
-            if x.lower() in givenData.keys():
-                details['entry.'+str(y)] = givenData[x.lower()]
+            for key in givenData.keys():
+                if key in x.lower():
+                    details['entry.'+str(y)] = givenData[key]
 #             if "NAME"in x.upper():
 #                 details['entry.'+str(y)] = "Ujjal Baniya"
 #             elif "EMAIL"in x.upper():
