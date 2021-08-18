@@ -68,7 +68,7 @@ def make_reply(msg, userID):
                 msg = msg.split()[1].strip("/viewfrom")
                 url = str(msg)
                 data = get_details(url)
-                x = updateform('dattebayo101a','hell0123', url, data)
+                x = updateform('dattebayo101a','hell123', url, data)
                 reply = x
             except:
                 reply = "failed"
